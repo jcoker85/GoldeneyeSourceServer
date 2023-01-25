@@ -36,6 +36,9 @@ echo "---Checking for old display lock files---"
 find /tmp -name ".X99*" -exec rm -f {} \; > /dev/null 2>&1
 echo "---Server ready---"
 
+echo "---Set permissions---"
+chmod -R 770 /servers
+
 echo "---Start Server---"
 cd /servers/geserver
 Xvfb :99 & export DISPLAY=:99
