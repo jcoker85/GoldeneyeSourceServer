@@ -2,16 +2,16 @@
 
 #Thanks to ich777 for this Wine config
 export WINEARCH=win64
-export WINEPREFIX=/servers/geserver/WINE64
+export WINEPREFIX=/servers/geserver/WINE
 echo "---Checking if WINE workdirectory is present---"
-if [ ! -d /servers/geserver/WINE64 ]; then
+if [ ! -d /servers/geserver/WINE ]; then
 	echo "---WINE workdirectory not found, creating please wait...---"
-    mkdir /servers/geserver/WINE64
+    mkdir /servers/geserver/WINE
 else
 	echo "---WINE workdirectory found---"
 fi
 echo "---Checking if WINE is properly installed---"
-if [ ! -d /servers/geserver/WINE64/drive_c/windows ]; then
+if [ ! -d /servers/geserver/WINE/drive_c/windows ]; then
 	echo "---Setting up WINE---"
     cd /servers/geserver
     winecfg > /dev/null 2>&1
@@ -25,4 +25,5 @@ echo "---Server ready---"
 
 echo "---Start Server---"
 cd /servers/geserver
-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24:32' wine64 ./srcds.exe -console -game gesource +map ${MAP}
+Xvfb :99 & export DISPLAY=:99
+wine64 start srcds.exe -console -game gesource +maxplayers ${MAXPLAYERS} +map ${MAP}
