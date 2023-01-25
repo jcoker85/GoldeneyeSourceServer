@@ -4,7 +4,7 @@
 
 if [ ! -e /servers/geserver/srcds.exe ]; then
   echo "---Installing Source SDK 2007---"
-  /steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /servers/geserver +logon anonymous +app_update 310 +quit
+  /servers/steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /servers/geserver +logon anonymous +app_update 310 +quit
 else
   echo "---Source SDK 2007 found---"
 fi
