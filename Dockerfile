@@ -11,7 +11,7 @@ RUN dpkg --add-architecture i386 && \
     useradd -d /servers/geserver -s /bin/bash steam && \
     mkdir /servers/steamcmd && \
     wget -O /servers/steamcmd/steamcmd_linux.tar.gz http://media.steampowered.com/client/steamcmd_linux.tar.gz && \
-    tar -xvzf /servers/steamcmd/steamcmd_linux.tar.gz -C /servers/steamcmd && \
+    tar -xvzf /servers/steamcmd/steamcmd_linux.tar.gz -C /servers/steamcmd
 
 COPY ./GoldenEye_Source_v5.0.6_full_server_windows.7z /servers
 COPY ./startup.sh /servers
