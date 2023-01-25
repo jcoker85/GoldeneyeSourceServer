@@ -1,5 +1,18 @@
 #!/bin/bash
 
+if [ ! -e /servers/geserver/srcds.exe ]; then
+  echo "---Installing Source SDK 2007---"
+  /steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /servers/geserver +logon anonymous +app_update 310 +quit
+else
+  echo "---Source SDK 2007 found---"
+fi
+if [ ! -d /servers/geserver/gesource ]; then
+  echo "---Installing Goldeneye Source Server---"
+  7z x -y -o/servers/geserver /GoldenEye_Source_v5.0.6_full_server_windows.7z
+else
+  echo "---Goldeneye Source Server found---"
+fi
+
 #Thanks to ich777 for this Wine config
 export WINEARCH=win64
 export WINEPREFIX=/servers/geserver/WINE
@@ -26,4 +39,5 @@ echo "---Server ready---"
 echo "---Start Server---"
 cd /servers/geserver
 Xvfb :99 & export DISPLAY=:99
-wine64 start srcds.exe -console -game gesource +maxplayers ${MAXPLAYERS} +map ${MAP}
+wine64 start srcds.exe -console -game gesource -port ${PORT} +maxplayers ${MAXPLAYERS} +map ${MAP}
+tail -f /dev/null
