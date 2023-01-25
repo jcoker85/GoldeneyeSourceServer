@@ -2,7 +2,7 @@ FROM ich777/winehq-baseimage
 
 ENV MAP="ge_archives"
 ENV MAXPLAYERS="10"
-ENV PORT="27015"
+ENV PORT_INCREMENT="5"
 
 RUN dpkg --add-architecture i386 && \
     apt update && \

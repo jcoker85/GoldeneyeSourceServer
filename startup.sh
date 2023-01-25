@@ -8,7 +8,7 @@ else
 fi
 if [ ! -d /servers/geserver/gesource ]; then
   echo "---Installing Goldeneye Source Server---"
-  7z x -y -o/servers/geserver /GoldenEye_Source_v5.0.6_full_server_windows.7z
+  7z x -y -o/servers/geserver GoldenEye_Source_v5.0.6_full_server_windows.7z
 else
   echo "---Goldeneye Source Server found---"
 fi
@@ -39,5 +39,5 @@ echo "---Server ready---"
 echo "---Start Server---"
 cd /servers/geserver
 Xvfb :99 & export DISPLAY=:99
-wine64 start srcds.exe -console -game gesource -port ${PORT} +maxplayers ${MAXPLAYERS} +map ${MAP}
+wine64 start srcds.exe -console -game gesource -port $((27015 + ${PORT_INCREMENT})) +clientport $((27005 + ${PORT_INCREMENT})) -sport $((26900 + ${PORT_INCREMENT})) +tv_port $((27020 + ${PORT_INCREMENT})) +maxplayers ${MAXPLAYERS} +map ${MAP}
 tail -f /dev/null
