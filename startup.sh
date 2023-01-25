@@ -13,4 +13,4 @@ umask 000
 echo "---Taking ownership of data...---"
 chown -R 99:100 /servers/geserver
 
-su steam -c "/server.sh"
+su steam -c "/servers/server.sh"

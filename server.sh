@@ -10,7 +10,7 @@ else
 fi
 if [ ! -d /servers/geserver/gesource ]; then
   echo "---Installing Goldeneye Source Server---"
-  7z x -y -o/servers/geserver /GoldenEye_Source_v5.0.6_full_server_windows.7z
+  7z x -y -o/servers/geserver /servers/GoldenEye_Source_v5.0.6_full_server_windows.7z
 else
   echo "---Goldeneye Source Server found---"
 fi
