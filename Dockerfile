@@ -8,6 +8,8 @@ RUN dpkg --add-architecture i386 && \
     apt update && \
     apt install -y tar lib32gcc-s1 p7zip-full winbind xvfb && \
     mkdir -p /servers/geserver && \
+    useradd -d /servers/geserver -s /bin/bash steam && \
+    chown -R steam /servers/geserver && \
     mkdir /steamcmd && \
     wget -O /steamcmd/steamcmd_linux.tar.gz http://media.steampowered.com/client/steamcmd_linux.tar.gz && \
     tar -xvzf /steamcmd/steamcmd_linux.tar.gz -C /steamcmd
