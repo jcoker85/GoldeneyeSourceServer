@@ -16,5 +16,6 @@ RUN dpkg --add-architecture i386 && \
 
 COPY ./GoldenEye_Source_v5.0.6_full_server_windows.7z /
 COPY ./startup.sh /
+COPY ./server.sh /
 
 ENTRYPOINT ["/startup.sh"]
