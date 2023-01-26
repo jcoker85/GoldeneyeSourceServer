@@ -17,4 +17,4 @@ If you need to use different ports, you can add the port increment environment v
 docker run --name GESourceSrv -e MAP=ge_caves -e MAXPLAYERS=10 -e PORT_INCREMENT=5 -p 27020:27020 -p 27020:27020/udp -v ~/geserver:/servers/geserver jcoker85/goldeneyesourceserver 
 ```
 
-Many thanks to ich777 for his base Wine image and excellent docker-steamcmd-server Docker project!
+Many thanks to ich777 for his base Wine image and ich777's and mattieserver's excellent docker-steamcmd-server Docker projects!
