@@ -1,7 +1,6 @@
 #!/bin/bash
 
-#Thanks to ich777 for a lot of the content in this script
-
+#Thanks to ich777 for this script
 echo "---Ensuring UID: 99 matches user---"
 usermod -u 99 steam
 echo "---Ensuring GID: 100 matches user---"
@@ -11,6 +10,6 @@ echo "---Setting umask to 000---"
 umask 000
 
 echo "---Taking ownership of data...---"
-chown -R 99:100 /servers/geserver
+chown -R 99:100 /servers
 
 su steam -c "/servers/server.sh"

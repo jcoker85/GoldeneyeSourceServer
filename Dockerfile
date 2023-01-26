@@ -14,9 +14,7 @@ RUN dpkg --add-architecture i386 && \
     tar -xvzf /servers/steamcmd/steamcmd_linux.tar.gz -C /servers/steamcmd
 
 COPY ./GoldenEye_Source_v5.0.6_full_server_windows.7z /servers
-COPY ./startup.sh /servers
+COPY ./startup.sh /
 COPY ./server.sh /servers
 
-RUN chown -R steam /servers
-
-ENTRYPOINT ["/servers/startup.sh"]
+ENTRYPOINT ["/startup.sh"]
